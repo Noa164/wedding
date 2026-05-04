@@ -1,0 +1,26 @@
+{
+  "name": "Photo",
+  "type": "object",
+  "properties": {
+    "guest_name": {
+      "type": "string",
+      "description": "Name of the guest who uploaded the photo"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "URL of the uploaded photo"
+    },
+    "caption": {
+      "type": "string",
+      "description": "Optional caption or message"
+    },
+    "wedding_id": {
+      "type": "string",
+      "description": "Reference to the wedding"
+    }
+  },
+  "required": [
+    "guest_name",
+    "photo_url"
+  ]
+}
