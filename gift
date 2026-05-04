@@ -1,0 +1,53 @@
+{
+  "name": "Gift",
+  "type": "object",
+  "properties": {
+    "guest_name": {
+      "type": "string",
+      "description": "Name of the gift giver"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Gift amount"
+    },
+    "message": {
+      "type": "string",
+      "description": "Personal blessing/message"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "bank_transfer",
+        "paybox_bit",
+        "cash"
+      ],
+      "description": "How the gift was sent"
+    },
+    "wedding_id": {
+      "type": "string",
+      "description": "Reference to the wedding"
+    }
+  },
+  "required": [
+    "guest_name",
+    "amount"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
