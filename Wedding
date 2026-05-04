@@ -1,0 +1,99 @@
+{
+  "name": "Wedding",
+  "type": "object",
+  "properties": {
+    "couple_name_1": {
+      "type": "string",
+      "description": "First person's name"
+    },
+    "couple_name_2": {
+      "type": "string",
+      "description": "Second person's name"
+    },
+    "wedding_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time of the wedding"
+    },
+    "venue_name": {
+      "type": "string",
+      "description": "Name of the wedding venue"
+    },
+    "venue_address": {
+      "type": "string",
+      "description": "Full address of the venue"
+    },
+    "waze_url": {
+      "type": "string",
+      "description": "Waze navigation URL"
+    },
+    "ceremony_time": {
+      "type": "string",
+      "description": "Time of the ceremony"
+    },
+    "reception_time": {
+      "type": "string",
+      "description": "Time of the reception"
+    },
+    "message": {
+      "type": "string",
+      "description": "A personal message from the couple"
+    },
+    "cover_image_url": {
+      "type": "string",
+      "description": "URL for cover/hero image"
+    },
+    "bank_name": {
+      "type": "string",
+      "description": "Bank name for transfers"
+    },
+    "bank_account_number": {
+      "type": "string",
+      "description": "Bank account number"
+    },
+    "bank_branch": {
+      "type": "string",
+      "description": "Bank branch number"
+    },
+    "paybox_url": {
+      "type": "string",
+      "description": "PayBox or Bit payment link"
+    }
+  },
+  "required": [
+    "couple_name_1",
+    "couple_name_2"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
